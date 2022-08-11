@@ -1,0 +1,111 @@
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//  モジュール
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//  見出しデザイン
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+h2.ttl {
+    display: block;
+    margin: 40px 0px 40px 0px;
+    padding: 10px 10px;
+    position: relative;
+
+    text-align: center;
+    color: $contents__font--color;
+    font-size: $h2__font--size;
+    font-weight: bold;
+}
+
+h3.ttl {
+    display: block;
+    margin: 50px 0px 30px 0px;
+    padding: 5px;
+
+    text-align: center;
+    color: $contents__font--color;
+    font-size: $h3__font--size;
+}
+
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//  基本テキストのデザイン
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+div, p, span, li, th, td {
+    color: $contents__font--color;
+    font-size: $text__font--size;
+    line-height: 200%;
+}
+
+p {
+    display: block;
+    padding: 10px 0px;
+}
+
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//  リンクのデザイン
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// 電話番号リンク
+a[href*="tel:"] {
+	color: inherit;
+	pointer-events: none;
+}
+
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//  サイズごとの表示・非表示
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// パソコンでは表示しない
+.pc_off { display: none !important; }
+// タブレットでは表示しない
+.tab_off {}
+// スマホでは表示しない
+.sp_off {}
+
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//  レスポンシブグリッド
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+ul.col, div.col {
+	display: block;
+    margin: 0px -5px;
+    padding: 0px;
+    box-sizing: border-box;
+
+    font-size: 0px;
+
+	> li, > div {
+        display: inline-block;
+        margin: 0px;
+		padding: 5px;
+        width: 50%;
+        box-sizing: border-box;
+
+        list-style-type: none;
+        font-size: $text__font--size;
+        vertical-align: top;
+
+        &.pc_5 { width: 5%; }
+        &.pc_10 { width: 10%; }
+        &.pc_15 { width: 15%; }
+        &.pc_20 { width: 20%; }
+        &.pc_25 { width: 25%; }
+        &.pc_30 { width: 30%; }
+        &.pc_33 { width: 33.333%; }
+        &.pc_35 { width: 35%; }
+        &.pc_40 { width: 40%; }
+        &.pc_45 { width: 45%; }
+        &.pc_50 { width: 50%; }
+        &.pc_55 { width: 55%; }
+        &.pc_60 { width: 60%; }
+        &.pc_65 { width: 65%; }
+        &.pc_70 { width: 70%; }
+        &.pc_75 { width: 75%; }
+        &.pc_80 { width: 80%; }
+        &.pc_85 { width: 85%; }
+        &.pc_90 { width: 90%; }
+        &.pc_95 { width: 95%; }
+        &.pc_100 { width: 100%; }
+	}
+}
