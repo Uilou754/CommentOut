@@ -53,7 +53,7 @@
                 while ($result->have_posts()): $result->the_post(); ?>
                     <div class='latest_post_block'>
                         <a href='<?php echo get_the_permalink(); ?>'>
-                            <img src='<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>'>
+                            <img src='<?php echo (has_post_thumbnail())? get_the_post_thumbnail_url(get_the_ID(), 'full'): get_stylesheet_directory_uri()."/img/NoImage.png"; ?>'>
                             <div class='latest_post_block__text'>
                                 <div class='date'>
                                     <time class='publish_date' datetime='<?php the_time('c'); ?>'>
@@ -90,147 +90,74 @@
 
     <div class="inner">
         <div class="col">
+            <!-- コンテンツ左側 // -->
             <div class="pc_75 tab_66 sp_100">
                 <?php
-                //====================================================================
-                //  1グループ
-                //====================================================================
-                $category_list01 = [
-                    ['name'=>'HTML & CSS',          'slug'=>'htmlcss',          'class'=>'active'],
-                    ['name'=>'Javascript & jQuery', 'slug'=>'javascriptjquery', 'class'=>''],
-                    ['name'=>'PHP',                 'slug'=>'php',              'class'=>''],
-                    ['name'=>'WordPress',           'slug'=>'wordpress',        'class'=>''],
-                ]; ?>
-                <!-- // タブキャプション // -->
-                <div class="tab_captions tab_captions01">
-                    <?php foreach ($category_list01 as $cate): ?>
-                        <button class="<?php echo $cate['class']; ?>" data-caption="<?php echo $cate['slug']; ?>">
-                            <?php echo $cate['name']; ?>
-                        </button>
-                    <?php endforeach; ?>
-                </div>
-                <!-- // タブコンテンツ // -->
-                <div class="tab_contents tab_contents01">
-                    <?php foreach ($category_list01 as $cate): ?>
-                        <div class="<?php echo $cate['class']; ?>" data-content="<?php echo $cate['slug']; ?>">
-                            <?php
-                            $result = new WP_Query(array(
-                                'post_status' 	    => 'publish',
-                                'post_type'         => 'post',
-                                'cat'               => get_category_by_slug($cate['slug'])->term_id,
-                                'posts_per_page'    => 6,
-                                'orderby' 		    => 'date',
-                                'order'			    => 'DESC'
-                            ));
-                            if ($result->have_posts()):
-                                while ($result->have_posts()): $result->the_post(); ?>
-                                    <div class='post_block'>
-                                        <a href='<?php echo get_the_permalink(); ?>'>
-                                            <img src='<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>'>
-                                            <div class='post_block__text'>
-                                                <div class='date'>
-                                                    <time class='publish_date' datetime='<?php the_time('c'); ?>'>
-                                                        <?php the_time('Y/m/d'); ?>
-                                                    </time>
-                                                    <time class='modified_date' datetime='<?php the_modified_date('c'); ?>'>
-                                                        <i class="fas fa-redo-alt"></i><?php the_modified_date('Y/m/d'); ?>
-                                                    </time>
-                                                </div>
-                                                <h2><?php the_title(); ?></h2>
-                                                <p class="content"><?php
-                                                $content = wp_trim_words(strip_shortcodes(strip_tags(get_the_content())), 300, '...');
-                                                echo $content;
-                                                ?></p>
-                                                <div class='categories'>
-                                                    <?php $categories = get_the_category();
-                                                    foreach ($categories as $category): ?>
-                                                        <div class='cat_block'><?php echo $category->cat_name; ?></div>
-                                                    <?php endforeach; ?>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                <?php endwhile; ?>
-                            <?php else: ?>
+                $category_list = [
+                    ['name'=>'HTML & CSS',          'slug'=>'htmlcss',          'class'=>'yellow'],
+                    ['name'=>'Javascript & jQuery', 'slug'=>'javascriptjquery', 'class'=>'green'],
+                    ['name'=>'PHP',                 'slug'=>'php',              'class'=>'red'],
+                    ['name'=>'WordPress',           'slug'=>'wordpress',        'class'=>'blue'],
+                    ['name'=>'アルゴリズム',         'slug'=>'algorithm',        'class'=>'yellow'],
+                    ['name'=>'インフラ関係',         'slug'=>'server',           'class'=>'blue'],
+                    ['name'=>'セキュリティ',         'slug'=>'security',         'class'=>'green'],
+                ];
+                foreach ($category_list as $cate): ?>
+                    <!-- カテゴリーキャプション -->
+                    <div class="category_caption category_caption--red">
+                        <span><?php echo $cate['name']; ?></span>
+                    </div>
+                    <!-- カテゴリーコンテンツ -->
+                    <div class="category_content category_content--red">
+                        <?php
+                        $result = new WP_Query(array(
+                            'post_status' 	    => 'publish',
+                            'post_type'         => 'post',
+                            'cat'               => get_category_by_slug($cate['slug'])->term_id,
+                            'posts_per_page'    => 6,
+                            'orderby' 		    => 'date',
+                            'order'			    => 'DESC'
+                        ));
+                        if ($result->have_posts()):
+                            while ($result->have_posts()): $result->the_post(); ?>
                                 <div class='post_block'>
-                                    <p>新しい記事はありません</p>
-                                </div>
-                            <?php endif; ?>
-                            <?php wp_reset_postdata(); // 投稿データをリセット ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-
-                <?php
-                //====================================================================
-                //  2グループ
-                //====================================================================
-                $category_list02 = [
-                    ['name'=>'アルゴリズム',         'slug'=>'algorithm',        'class'=>'active'],
-                    ['name'=>'インフラ関係',         'slug'=>'server',           'class'=>''],
-                    ['name'=>'セキュリティ',         'slug'=>'security',         'class'=>''],
-                ]; ?>
-                <!-- // タブキャプション // -->
-                <div class="tab_captions tab_captions02">
-                    <?php foreach ($category_list02 as $cate): ?>
-                        <button class="<?php echo $cate['class']; ?>" data-caption="<?php echo $cate['slug']; ?>">
-                            <?php echo $cate['name']; ?>
-                        </button>
-                    <?php endforeach; ?>
-                </div>
-                <!-- // タブコンテンツ // -->
-                <div class="tab_contents tab_contents02">
-                    <?php foreach ($category_list02 as $cate): ?>
-                        <div class="<?php echo $cate['class']; ?>" data-content="<?php echo $cate['slug']; ?>">
-                            <?php
-                            $result = new WP_Query(array(
-                                'post_status' 	    => 'publish',
-                                'post_type'         => 'post',
-                                'cat'               => get_category_by_slug($cate['slug'])->term_id,
-                                'posts_per_page'    => 6,
-                                'orderby' 		    => 'date',
-                                'order'			    => 'DESC'
-                            ));
-                            if ($result->have_posts()):
-                                while ($result->have_posts()): $result->the_post(); ?>
-                                    <div class='post_block'>
-                                        <a href='<?php echo get_the_permalink(); ?>'>
-                                            <img src='<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>'>
-                                            <div class='post_block__text'>
-                                                <div class='date'>
-                                                    <time class='publish_date' datetime='<?php the_time('c'); ?>'>
-                                                        <?php the_time('Y/m/d'); ?>
-                                                    </time>
-                                                    <time class='modified_date' datetime='<?php the_modified_date('c'); ?>'>
-                                                        <i class="fas fa-redo-alt"></i><?php the_modified_date('Y/m/d'); ?>
-                                                    </time>
-                                                </div>
-                                                <h2><?php the_title(); ?></h2>
-                                                <p class="content"><?php
-                                                $content = wp_trim_words(strip_shortcodes(strip_tags(get_the_content())), 300, '...');
-                                                echo $content;
-                                                ?></p>
-                                                <div class='categories'>
-                                                    <?php $categories = get_the_category();
-                                                    foreach ($categories as $category): ?>
-                                                        <div class='cat_block'><?php echo $category->cat_name; ?></div>
-                                                    <?php endforeach; ?>
-                                                </div>
+                                    <a href='<?php echo get_the_permalink(); ?>'>
+                                        <img src='<?php echo (has_post_thumbnail())? get_the_post_thumbnail_url(get_the_ID(), 'full'): get_stylesheet_directory_uri()."/img/NoImage.png"; ?>'>
+                                        <div class='post_block__text'>
+                                            <div class='date'>
+                                                <time class='publish_date' datetime='<?php the_time('c'); ?>'>
+                                                    <?php the_time('Y/m/d'); ?>
+                                                </time>
+                                                <time class='modified_date' datetime='<?php the_modified_date('c'); ?>'>
+                                                    <i class="fas fa-redo-alt"></i><?php the_modified_date('Y/m/d'); ?>
+                                                </time>
                                             </div>
-                                        </a>
-                                    </div>
-                                <?php endwhile; ?>
-                            <?php else: ?>
-                                <div class='post_block'>
-                                    <p>新しい記事はありません</p>
+                                            <h2><?php the_title(); ?></h2>
+                                            <p class="content"><?php
+                                            $content = wp_trim_words(strip_shortcodes(strip_tags(get_the_content())), 300, '...');
+                                            echo $content;
+                                            ?></p>
+                                            <div class='categories'>
+                                                <?php $categories = get_the_category();
+                                                foreach ($categories as $category): ?>
+                                                    <div class='cat_block'><?php echo $category->cat_name; ?></div>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            <?php endif; ?>
-                            <?php wp_reset_postdata(); // 投稿データをリセット ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <div class='post_block'>
+                                <p>新しい記事はありません</p>
+                            </div>
+                        <?php endif; ?>
+                        <?php wp_reset_postdata(); // 投稿データをリセット ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
+            <!-- // コンテンツ左側 -->
+            <!-- コンテンツ右側 // -->
             <div class="pc_25 tab_33 sp_100">
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6675900840665799"
                     crossorigin="anonymous"></script>
@@ -250,6 +177,7 @@
                 <!-- サイドバー -->
                 <?php get_sidebar(); ?>
             </div>
+            <!-- // コンテンツ右側 -->
         </div>
     </div>
 </article>

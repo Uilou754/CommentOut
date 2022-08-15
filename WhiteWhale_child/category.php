@@ -20,7 +20,7 @@
                 <div class="col">
                     <div class="pc_40 tab_45 sp_100">
                         <a href="<?php echo get_the_permalink(); ?>">
-                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"/>
+                            <img src="<?php echo (has_post_thumbnail())? get_the_post_thumbnail_url(get_the_ID(), 'full'): get_stylesheet_directory_uri()."/img/NoImage.png"; ?>"/>
                         </a>
                     </div>
                     <div class="pc_60 tab_55 sp_100">

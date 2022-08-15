@@ -6,10 +6,11 @@
     
     <?php wp_head(); ?>
     
-
 	<link rel='stylesheet' href="<?php echo get_stylesheet_directory_uri(); ?>/css/style_sp.css" media='all and (max-width:460px)'>
 	<link rel='stylesheet' href="<?php echo get_stylesheet_directory_uri(); ?>/css/style_tab.css" media='all and (min-width:460px) and (max-width:768px)'>
 	<link rel='stylesheet' href="<?php echo get_stylesheet_directory_uri(); ?>/css/style_pc.css" media='all and (min-width:768px)'>
+
+    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body class="<?php echo ww_get_slug(); ?>">
 
@@ -43,6 +44,12 @@
                 ));
             }
             ?>
+            <div class="header__hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
