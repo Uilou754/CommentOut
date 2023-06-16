@@ -5,8 +5,10 @@ div, article, section, aside {
 	box-sizing: border-box;
 
     font-family: $Gothic;
+    font-weight: 500;
     font-feature-settings: "palt";
     line-height: 180%;
+    letter-spacing: calc(100em/1000);
 }
 
 // リンク

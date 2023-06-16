@@ -14,6 +14,8 @@
 </head>
 <body class="<?php echo ww_get_slug(); ?>">
 
+    <div class="topmost_message">エラーの修正や小さなプログラムの相談、社内システムのリビルド等、お仕事の依頼やシステムのご相談は<a href="<?php echo esc_url(home_url('/')); ?>contact.html">お問い合わせフォーム</a>にお願いします。</div>
+
     <header class="header <?php if (get_theme_mod('ww_header-total-position') === 'fixed') echo 'header--fixed';/* 上部固定 */ ?>"
         style="<?php if (get_theme_mod('ww_header-total-bgcolor')) echo 'background:' . esc_attr(get_theme_mod('ww_header-total-bgcolor')) . ';';/* 背景色 */ ?>">
         <div class="header__inner">
