@@ -20,7 +20,8 @@
     <div class="col">
         <div class="pc_35 tab_45 sp_100">
             <a href="<?php echo get_the_permalink(); ?>">
-                <img class="eyecatch_img" src="<?php echo (has_post_thumbnail())? get_the_post_thumbnail_url(get_the_ID(), 'full'): get_stylesheet_directory_uri()."/img/NoImage.png"; ?>"/>
+                <img class="eyecatch_img" src="<?php echo (has_post_thumbnail())? get_the_post_thumbnail_url(get_the_ID(), 'full'): get_stylesheet_directory_uri()."/img/NoImage.png"; ?>"
+                    alt="<?php echo get_the_title(); ?>" loading="lazy"/>
             </a>
         </div>
         <div class="pc_65 tab_55 sp_100">

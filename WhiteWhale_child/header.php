@@ -6,15 +6,18 @@
     
     <?php wp_head(); ?>
     
-	<link rel='stylesheet' href="<?php echo get_stylesheet_directory_uri(); ?>/css/style_sp.css" media='all and (max-width:460px)'>
-	<link rel='stylesheet' href="<?php echo get_stylesheet_directory_uri(); ?>/css/style_tab.css" media='all and (min-width:460px) and (max-width:768px)'>
-	<link rel='stylesheet' href="<?php echo get_stylesheet_directory_uri(); ?>/css/style_pc.css" media='all and (min-width:768px)'>
-
     <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NGZZTPD');
+    </script>
+    <!-- End Google Tag Manager -->
 </head>
 <body class="<?php echo ww_get_slug(); ?>">
-
-    <div class="topmost_message">エラーの修正や小さなプログラムの相談、社内システムのリビルド等、お仕事の依頼やシステムのご相談は<a href="<?php echo esc_url(home_url('/')); ?>contact.html">お問い合わせフォーム</a>にお願いします。</div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGZZTPD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <header class="header <?php if (get_theme_mod('ww_header-total-position') === 'fixed') echo 'header--fixed';/* 上部固定 */ ?>"
         style="<?php if (get_theme_mod('ww_header-total-bgcolor')) echo 'background:' . esc_attr(get_theme_mod('ww_header-total-bgcolor')) . ';';/* 背景色 */ ?>">

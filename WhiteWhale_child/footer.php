@@ -45,7 +45,9 @@
                             ));
                             if ($result->have_posts()): while ($result->have_posts()): $result->the_post(); ?>
                                 <a class='img_grid_block' href='<?php echo get_the_permalink(); ?>'>
-                                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" alt="<?php the_title(); ?>">
+                                    <img
+                                        src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'thumb100'); ?>"
+                                        alt="<?php the_title(); ?>" loading="lazy">
                                 </a>
                             <?php endwhile; endif;
                             // 投稿データをリセット
@@ -58,15 +60,18 @@
             </div>
         </footer>
 
-        <div id="copyright" style="<?php
-            if (get_theme_mod('ww_footer-copyright-bgcolor')) echo 'background: '.esc_attr(get_theme_mod('ww_footer-copyright-bgcolor')).';';/*背景色*/ ?>">
-            <div class="footer__inner" style="<?php
-                if (get_theme_mod('ww_footer-copyright-fcolor')) echo 'color: '.esc_attr(get_theme_mod('ww_footer-copyright-fcolor')).';';/*文字色*/
-                if (get_theme_mod('ww_footer-copyright-fsize')) echo 'font-size: '.esc_attr(get_theme_mod('ww_footer-copyright-fsize')).'px;';/*文字サイズ*/ ?>">
+        <div id="copyright">
+            <div class="footer__inner">
                 &copy; <?php echo esc_html(get_bloginfo('name')); ?>
             </div>
         </div>
 
         <?php wp_footer(); ?>
+
+        <!-- Javascriptの読み込み -->
+        <script defer src="<?php echo get_stylesheet_directory_uri().'/js/hamburger.js'; ?>"></script>
+        <?php if (is_front_page() || is_home()): ?>
+            <script defer src="<?php echo get_stylesheet_directory_uri().'/js/tab.js'; ?>"></script>
+        <?php endif; ?>
     </body>
 </html>

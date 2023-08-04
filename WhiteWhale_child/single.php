@@ -9,11 +9,11 @@
                 <img
                     class="back"
                     src="<?php echo (has_post_thumbnail())? get_the_post_thumbnail_url(get_the_ID(), 'full'): get_stylesheet_directory_uri()."/img/NoImage.png"; ?>"
-                    alt="<?php echo get_the_title(); ?>"/>
+                    alt="<?php echo get_the_title(); ?>" loading="lazy"/>
                 <img
                     class="front"
                     src="<?php echo (has_post_thumbnail())? get_the_post_thumbnail_url(get_the_ID(), 'full'): get_stylesheet_directory_uri()."/img/NoImage.png"; ?>"
-                    alt="<?php echo get_the_title(); ?>"/>
+                    alt="<?php echo get_the_title(); ?>" loading="lazy"/>
             </div>
 
             <!-- 記事タイトル -->
@@ -46,6 +46,16 @@
                         <?php the_content(); ?>
                     </div>
 
+                    <!-- 宣伝エリア // -->
+                    <div class="tips">
+                        <div class="tips__ttl">宣伝</div>
+                        <div class="tips__contents">
+                            WordPressサイトのテンプレート編集やトラブル対応、バグ修正、簡単なJavascriptの作成（カルーセルやバリデーション等）など、小規模なスポット対応を受け付けております。<br>
+                            もしお困りごとがありましたら、<a href="<?php echo esc_url(home_url('/')); ?>contact.html">お問い合わせフォーム</a>よりご相談ください。
+                        </div>
+                    </div>
+                    <!-- // 宣伝エリア -->
+
                     <!-- AdSense // -->
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6675900840665799"
                         crossorigin="anonymous"></script>
@@ -64,7 +74,7 @@
                     <div class="author_block">
                         <div class="author_block--left">
                             <p class="author_block__caption">この記事を書いた人</p>
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/AdminImage.jpg" alt="uilou"/>
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/AdminImage.jpg" alt="uilou" loading="lazy"/>
                         </div>
                         <div class="author_block--right">
                             <p class="author_block__name">uilou</p>

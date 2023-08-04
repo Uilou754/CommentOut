@@ -34,38 +34,6 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('jquery');
 });
 
-
-add_action('wp_footer', function () {
-?>
-    <script type="text/javascript">
-        // ここにスプリプトを書く
-
-        // サイズ別CSSの読み込み
-        function switchByWidth() {
-            let head = document.getElementsByTagName('head')[0];
-            let link = document.createElement('link');
-            link.setAttribute('rel', 'stylesheet');
-            link.setAttribute('type', 'text/css');
-
-            if (window.matchMedia('(max-width: 895px)').matches) {			// SmartPhone
-                link.setAttribute('href', '<?php echo get_stylesheet_directory_uri(); ?>/css/style_sp.css');
-            } else if (window.matchMedia('(max-width:1179px)').matches) {	// Tablet
-                link.setAttribute('href', '<?php echo get_stylesheet_directory_uri(); ?>/css/style_tab.css');
-            } else {														// PC
-                link.setAttribute('href', '<?php echo get_stylesheet_directory_uri(); ?>/css/style_pc.css');
-            }
-
-            // linkタグを出力
-            head.appendChild(link);
-        }
-
-        // 読み込み時とリサイズ時に同じ処理を付与する
-        switchByWidth();
-        //window.onresize = switchByWidth;	// リサイズすると何度も書き込み処理が走ってしまうので、これを解決しないと使えない
-    </script>
-<?php
-});
-
 add_filter('document_title_separator', function ($sep) {
     $sep = '|';
     return $sep;
