@@ -140,6 +140,22 @@
 
             <!-- コンテンツ右側 // -->
             <div class="single-flex__side">
+                <!-- MAF Rakuten Widget FROM HERE -->
+                <script type="text/javascript">
+                    MafRakutenWidgetParam = function() {
+                        return {
+                            size: '300x250',
+                            design: 'slide',
+                            recommend: 'on',
+                            auto_mode: 'on',
+                            a_id: '4145423',
+                            border: 'off'
+                        };
+                    }
+                </script>
+                <script type="text/javascript" src="//image.moshimo.com/static/publish/af/rakuten/widget.js"></script>
+                <!-- MAF Rakuten Widget TO HERE -->
+
                 <div class="sidebar_profile">
                     <div class="sidebar_profile__title">管理人について</div>
                     <img loading="lazy" class="sidebar_profile__background" src="<?php echo get_stylesheet_directory_uri(); ?>/img/profile_background.jpg"/>

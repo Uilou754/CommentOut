@@ -644,15 +644,14 @@ $footer__font--color: #000;
 
                 a {
                     display: block;
-                    width: 100%;
-                    height: 100%;
 
                     position: relative;
 
                     img {
                         display: block;
                         width: 100%;
-                        height: 100%;
+                        height: auto;
+                        aspect-ratio: 21 / 9;
 
                         object-fit: cover;
                     }
@@ -714,32 +713,25 @@ $footer__font--color: #000;
     //==================================================
     // メインコンテンツ
     //==================================================
-    .tabs {
+
+    // カテゴリーキャプション
+    .category_caption {
         display: block;
-        margin: 20px 0px 0px 0px;
-        padding: 0px;
+        margin: 80px 0px 20px 0px;
+        padding: 5px 15px;
 
-        font-size: 0px;
+        color: #333;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 180%;
+        border-bottom: 5px solid #e3d3b3;
+        outline: none;
 
-        // カテゴリーキャプション
-        .category_caption {
-            display: inline-block;
-            padding: 10px 15px;
-
-            color: #333;
-            text-align: center;
-            font-size: 15px;
-            line-height: 180%;
-            background: #e0e0e5;
-            border-bottom: 1px solid #ccc;
-            outline: none;
-            transition: background-color 0.5s ease;
-
-            &--open {
-                background: #aaa;
-            }
+        &:first-child {
+            margin: 20px 0px;
         }
     }
+
     // カテゴリーコンテンツ
     .category_content {
         display: block;
@@ -753,8 +745,10 @@ $footer__font--color: #000;
 
             // サムネイル
             &__thumbnail {
-                width: 30%;
-                max-width: 280px;
+                width: 25%;
+                max-width: 180px;
+                height: auto;
+                aspect-ratio: 1 / 1;
             }
 
             // テキストエリア
@@ -782,10 +776,10 @@ $footer__font--color: #000;
                 }
                 .content {
                     display: -webkit-box;
-                    height: calc(1.8em * 6);
+                    height: calc(1.8em * 3);
                     overflow: hidden;
                     -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 6;
+                    -webkit-line-clamp: 3;
 
                     color: #333;
                     font-size: 15px;
@@ -796,6 +790,8 @@ $footer__font--color: #000;
             .categories {
                 .cat_block {
                     display: inline-block;
+                    margin-right: 5px;
+                    margin-bottom: 5px;
                     padding: 5px 10px;
 
                     color: white;
