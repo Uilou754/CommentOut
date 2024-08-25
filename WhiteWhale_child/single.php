@@ -6,14 +6,12 @@
 
             <!-- アイキャッチ -->
             <div class="eyecatch">
-                <img
-                    class="back"
+                <img class="back" loading="lazy"
                     src="<?php echo (has_post_thumbnail())? get_the_post_thumbnail_url(get_the_ID(), 'full'): get_stylesheet_directory_uri()."/img/NoImage.png"; ?>"
-                    alt="<?php echo get_the_title(); ?>" loading="lazy"/>
-                <img
-                    class="front"
+                    alt="<?php echo get_the_title(); ?>"/>
+                <img class="front" loading="lazy"
                     src="<?php echo (has_post_thumbnail())? get_the_post_thumbnail_url(get_the_ID(), 'full'): get_stylesheet_directory_uri()."/img/NoImage.png"; ?>"
-                    alt="<?php echo get_the_title(); ?>" loading="lazy"/>
+                    alt="<?php echo get_the_title(); ?>"/>
             </div>
 
             <!-- 記事タイトル -->
@@ -28,8 +26,6 @@
             <div class="single-flex">
                 <div class="single-flex__contents">
                     <!-- AdSense // -->
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6675900840665799"
-                        crossorigin="anonymous"></script>
                     <!-- アイキャッチ下広告 -->
                     <ins class="adsbygoogle"
                         style="display:block"
@@ -57,8 +53,6 @@
                     <!-- // 宣伝エリア -->
 
                     <!-- AdSense // -->
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6675900840665799"
-                        crossorigin="anonymous"></script>
                     <!-- 記事下部 -->
                     <ins class="adsbygoogle"
                         style="display:block"
@@ -74,7 +68,7 @@
                     <div class="author_block">
                         <div class="author_block--left">
                             <p class="author_block__caption">この記事を書いた人</p>
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/AdminImage.jpg" alt="uilou" loading="lazy"/>
+                            <img loading="lazy" src="<?php echo get_stylesheet_directory_uri(); ?>/img/AdminImage.jpg" alt="uilou"/>
                         </div>
                         <div class="author_block--right">
                             <p class="author_block__name">uilou</p>
@@ -123,10 +117,10 @@
                             <a href='<?php echo get_the_permalink(); ?>'>
                                 <div class='date'>
                                     <time class='publish_date' datetime='<?php the_time('c'); ?>'>
-                                        <?php the_time('Y/m/d'); ?>
+                                        投稿：<?php the_time('Y/m/d'); ?>
                                     </time>
                                     <time class='modified_date' datetime='<?php the_modified_date('c'); ?>'>
-                                        <i class="fas fa-redo-alt"></i><?php the_modified_date('Y/m/d'); ?>
+                                        最終更新：<?php the_modified_date('Y/m/d'); ?>
                                     </time>
                                 </div>
                                 <h2><?php echo get_the_title(); ?></h2>
@@ -168,10 +162,10 @@
                             <a href='<?php echo get_the_permalink(); ?>'>
                                 <div class='date'>
                                     <time class='publish_date' datetime='<?php the_time('c'); ?>'>
-                                        <?php the_time('Y/m/d'); ?>
+                                        投稿：<?php the_time('Y/m/d'); ?>
                                     </time>
                                     <time class='modified_date' datetime='<?php the_modified_date('c'); ?>'>
-                                        <i class="fas fa-redo-alt"></i><?php the_modified_date('Y/m/d'); ?>
+                                        最終更新：<?php the_modified_date('Y/m/d'); ?>
                                     </time>
                                 </div>
                                 <h2><?php echo get_the_title(); ?></h2>

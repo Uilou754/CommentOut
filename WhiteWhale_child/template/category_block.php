@@ -5,10 +5,10 @@
     </a>
     <div class='date'>
         <time class='publish_date' datetime='<?php the_time('c'); ?>'>
-            <?php the_time('Y/m/d'); ?>
+            投稿：<?php the_time('Y/m/d'); ?>
         </time>
         <time class='modified_date' datetime='<?php the_modified_date('c'); ?>'>
-            <i class="fas fa-redo-alt"></i><?php the_modified_date('Y/m/d'); ?>
+            最終更新：<?php the_modified_date('Y/m/d'); ?>
         </time>
     </div>
     <div class='categories'>

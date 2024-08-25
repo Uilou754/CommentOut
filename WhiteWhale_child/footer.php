@@ -45,9 +45,9 @@
                             ));
                             if ($result->have_posts()): while ($result->have_posts()): $result->the_post(); ?>
                                 <a class='img_grid_block' href='<?php echo get_the_permalink(); ?>'>
-                                    <img
+                                    <img loading="lazy"
                                         src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'thumb100'); ?>"
-                                        alt="<?php the_title(); ?>" loading="lazy">
+                                        alt="<?php the_title(); ?>"/>
                                 </a>
                             <?php endwhile; endif;
                             // 投稿データをリセット

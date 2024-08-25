@@ -5,8 +5,28 @@
     <meta name="viewport" content="width=device-width" />
     
     <?php wp_head(); ?>
-    
-    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://www.google.com"/>
+    <link rel="preconnect" href="https://www.googletagmanager.com"/>
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net"/>
+    <link rel="preconnect" href="https://fundingchoicesmessages.google.com"/>
+    <link rel="preconnect" href="https://www.gstatic.com"/>
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com"/>
+    <link rel="preconnect" href="https://cpwebassets.codepen.io"/>
+    <link rel="preconnect" href="https://mtwidget03.affiliate.ashiato.rakuten.co.jp"/>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
+
+    <!-- Preload CSS -->
+    <link rel="preload" href="https://comment-out.net/wp-content/cache/autoptimize/css/autoptimize_single_c85e670108251e4032d716a95a57c616.css" as="style"/>
+
+    <!-- Preload Script -->
+    <link rel="preload" href="https://comment-out.net/wp-includes/js/jquery/jquery.min.js" as="script"/>
+    <link rel="preload" href="https://comment-out.net/wp-includes/js/jquery/jquery-migrate.min.js" as="script"/>
+    <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-GYEGJWW3TN&l=dataLayer&cx=c" as="script"/>
+    <link rel="preload" href="https://www.googletagmanager.com/gtm.js?id=GTM-NGZZTPD" as="script"/>
+    <link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6675900840665799" as="script"/>
+    <link rel="preload" href="https://fundingchoicesmessages.google.com/i/ca-pub-6675900840665799?href=https%3A%2F%2Fcomment-out.net&ers=2" as="script"/>
 
     <!-- Google Tag Manager -->
     <script>
