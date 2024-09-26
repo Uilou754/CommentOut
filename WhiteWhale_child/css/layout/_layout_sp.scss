@@ -22,12 +22,16 @@ body {
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 .header {
 
+    &__inner {
+        padding: 10px 20px;
+    }
+
     // サイトタイトル
     .site_ttl {
         h1 {
-            padding: 10px 20px;
+            padding: 10px 40px 10px 0px;
             color: $header__font--color;
-            font-size: 36px;
+            font-size: 32px;
             font-weight: bold;
             text-decoration: none;
         }
@@ -40,7 +44,7 @@ body {
         width: 50px;
         height: 50px;
         position: absolute;
-        top: 25px;
+        top: 10px;
         right: 10px;
         z-index: 999;
 
@@ -339,12 +343,14 @@ body {
 
             // サムネイル
             &__thumbnail {
-                width: 100%;
+                display: none;
+                width: auto;
                 max-width: unset;
+                aspect-ratio: unset;
 
                 > img {
                     width: 100%;
-                    aspect-ratio: 16 / 9;
+                    aspect-ratio: 1 / 1;
                     object-fit: cover;
                 }
             }

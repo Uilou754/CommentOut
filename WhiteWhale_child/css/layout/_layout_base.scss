@@ -1076,6 +1076,10 @@ article.category {
             font-weight: 400;
         }
 
+        a {
+            word-break: break-all;
+        }
+
         strong {
             font-weight: bold;
             background: linear-gradient(to bottom, transparent 50%, #ffffaa 50%);

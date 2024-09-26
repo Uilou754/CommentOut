@@ -868,6 +868,8 @@ article.category .pagination {
     margin-bottom: 1em;
     font-size: 15px;
     font-weight: 400; }
+  #single .single-flex__contents a {
+    word-break: break-all; }
   #single .single-flex__contents strong {
     font-weight: bold;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, #ffffaa));
@@ -1272,10 +1274,12 @@ article.category .pagination {
     margin: 0px 15px; }
   body .inner--mini {
     padding: 0px 10px; }
+  .header__inner {
+    padding: 10px 20px; }
   .header .site_ttl h1 {
-    padding: 10px 20px;
+    padding: 10px 40px 10px 0px;
     color: #333;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: bold;
     text-decoration: none; }
   .header__hamburger {
@@ -1284,7 +1288,7 @@ article.category .pagination {
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 25px;
+    top: 10px;
     right: 10px;
     z-index: 999;
     background: #445;
@@ -1483,11 +1487,13 @@ article.category .pagination {
     gap: 10px;
     border-bottom: 1px solid #666; }
     #home .category_content .post_block__thumbnail {
-      width: 100%;
-      max-width: unset; }
+      display: none;
+      width: auto;
+      max-width: unset;
+      aspect-ratio: unset; }
       #home .category_content .post_block__thumbnail > img {
         width: 100%;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 1 / 1;
         -o-object-fit: cover;
         object-fit: cover; }
   article.category .post_block .excerpt {
